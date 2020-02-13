@@ -92,6 +92,7 @@ ifeq ($(OPSYS),GNU/Linux)
     OPTS += -DUSE_uuid_generate=0
   endif
   OPTS += -DENABLE_arch_$(shell uname -m)
+  RANLIB += $@
 endif
 
 ifneq ($(OPSYS),Windows)
