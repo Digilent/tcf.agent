@@ -111,7 +111,7 @@ NO_LINK_F	?= -c
 # Linker definition and flags
 
 LINK		?= $(CC)
-LINK_FLAGS	?= $(CFLAGS)
+LINK_FLAGS	?= $(LDFLAGS) $(CFLAGS)
 LINK_OUT_F	?= $(OUT_OBJ_F)
 
 # Archiver definition and flags
