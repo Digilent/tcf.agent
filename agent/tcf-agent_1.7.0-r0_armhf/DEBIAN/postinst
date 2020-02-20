@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ ! -e /etc/systemd/system/tcf-agent.service ]
+then
+	systemctl enable tcf-agent.service
+	systemctl start tcf-agent.service
+fi
+
+

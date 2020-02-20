@@ -1,0 +1,14 @@
+Package: tcf-agent
+Version: 1.7.0-r0
+Description: Target Communication Framework for the Eclipse IDE
+ Target Communication Framework for the Eclipse IDE.
+Section: base
+Priority: optional
+Maintainer: Xilinx <meta-xilinx@yoctoproject.org>
+Architecture: armhf
+OE: tcf-agent
+Multi-Arch: foreign
+Homepage: http://wiki.eclipse.org/TCF
+Depends: bash, libc6 (>= 2.27), libssl1.1 (>= 1.1), libuuid1 (>= 2.31.1)
+Recommends: tcf-agent-lic
+
