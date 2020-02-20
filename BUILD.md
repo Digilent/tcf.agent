@@ -1,0 +1,33 @@
+# Build instruction
+
+## Build environment
+
+in petailinux > 19.1
+
+	petalinxu-build --sdk
+
+then
+
+	petalinux-package --sysroot
+
+## Build tcf agent
+
+Source `petalinux` SDK environment (installed in ../image/linux/sdk directroy)
+
+Update `CFLAGS` variable to fix some runtime issues
+
+	export CFLAGS="$CFLAGS -fstack-protector-strong -Wformat -Wformat-security -Werror=format-security -D_FORTIFY_SOURCE=2 -DENABLE_HardwareBreakpoints=0"
+
+In this directory issue command:
+
+	make INSTALLROOT=/`pwd`/rfs/ OPSYS=GNU/Linux MACHINE=arm -C agent/
+
+To clean
+
+	make INSTALLROOT=/`pwd`/rfs/ OPSYS=GNU/Linux MACHINE=arm -C agent/ clean
+
+
+
+
+
+
