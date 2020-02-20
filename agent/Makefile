@@ -128,6 +128,12 @@ rpm: all tar
 	mv RPM/SRPMS/*.rpm .
 	rm -rf RPM ~/.rpmmacros
 
+deb:
+	install -c $(BINDIR)/agent -m 755 tcf-agent_1.7.0-r0_armhf/$(SBIN)/tcf-agent
+	rm tcf-agent_1.7.0-r0_armhf/$(SBIN)/.keep
+	dpkg-deb --root-owner-group --build tcf-agent_1.7.0-r0_armhf
+	touch tcf-agent_1.7.0-r0_armhf/$(SBIN)/.keep
+
 clean::
 	rm -rf RPM *.tar *.tar.bz2 *.rpm
 
