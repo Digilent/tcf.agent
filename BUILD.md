@@ -26,8 +26,11 @@ To clean
 
 	make INSTALLROOT=/`pwd`/rfs/ OPSYS=GNU/Linux MACHINE=arm -C agent/ clean
 
+## Build deb package
 
+	make OPSYS=GNU/Linux MACHINE=arm -C agent/ deb
 
+This will use `dpkg-deb --root-owner-group --build tcf-agent_1.7.0-r0_armhf` command. Make sure is installed and working
 
 
 
