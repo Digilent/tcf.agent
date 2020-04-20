@@ -21,14 +21,19 @@ Update `CFLAGS` variable to fix some runtime issues
 In this directory issue command:
 
 	make INSTALLROOT=/`pwd`/rfs/ OPSYS=GNU/Linux MACHINE=arm -C agent/
+	#or
+	make INSTALLROOT=/`pwd`/rfs/ OPSYS=GNU/Linux MACHINE=a64 -C agent/
 
 To clean
 
 	make INSTALLROOT=/`pwd`/rfs/ OPSYS=GNU/Linux MACHINE=arm -C agent/ clean
+	#or
+	make INSTALLROOT=/`pwd`/rfs/ OPSYS=GNU/Linux MACHINE=a64 -C agent/ clean
 
 ## Build deb package
 
 	make OPSYS=GNU/Linux MACHINE=arm -C agent/ deb
+	make OPSYS=GNU/Linux MACHINE=a64 -C agent/ deb
 
 This will use `dpkg-deb --root-owner-group --build tcf-agent_1.7.0-r0_armhf` command. Make sure is installed and working
 
