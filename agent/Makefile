@@ -128,11 +128,19 @@ rpm: all tar
 	mv RPM/SRPMS/*.rpm .
 	rm -rf RPM ~/.rpmmacros
 
+.PHONY:
 deb:
-	install -c $(BINDIR)/agent -m 755 tcf-agent_1.7.0-r0_armhf/$(SBIN)/tcf-agent
-	rm tcf-agent_1.7.0-r0_armhf/$(SBIN)/.keep
-	dpkg-deb --root-owner-group --build tcf-agent_1.7.0-r0_armhf
-	touch tcf-agent_1.7.0-r0_armhf/$(SBIN)/.keep
+	@if [ "$(MACHINE)" = "a64" ]; then \
+		install -c $(BINDIR)/agent -m 755 tcf-agent_1.7.0-r0_arm64$(SBIN)/tcf-agent; \
+		rm tcf-agent_1.7.0-r0_arm64/$(SBIN)/.keep; \
+		dpkg-deb --root-owner-group --build tcf-agent_1.7.0-r0_arm64; \
+		touch tcf-agent_1.7.0-r0_arm64/$(SBIN)/.keep; \
+	else \
+		install -c $(BINDIR)/agent -m 755 tcf-agent_1.7.0-r0_armhf$(SBIN)/tcf-agent; \
+		rm tcf-agent_1.7.0-r0_armhf/$(SBIN)/.keep; \
+		dpkg-deb --root-owner-group --build tcf-agent_1.7.0-r0_armhf; \
+		touch tcf-agent_1.7.0-r0_armhf/$(SBIN)/.keep; \
+	fi
 
 clean::
 	rm -rf RPM *.tar *.tar.bz2 *.rpm
